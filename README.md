@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Game of Life in React 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project to make the Game of life in React. 
+It is created to further my understanding of React, and also to better my programming ability.
 
-## Available Scripts
+I will likely need to use the context API to acheive this task as the state of all cells will be affected by the generation of a new game grid on every evolution. 
 
-In the project directory, you can run:
+## To Do List 
 
-### `npm start`
+1. Create the Components
+  - This includes all of the Components in the UI
+  - The game grid 
+  - The cells in the game grid
+  - The data structure that defines which cells start as alive, and which as dead 
+2. Implement the logic 
+  - Frontier searching for alive cells 
+  - Removing Dead Cells 
+  - Producing new Alive cells 
+  - Optimizing the Process so that it is not slow 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Rules of the Game of life 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I have included a link to where I am taking the rules for the game of life from: 
 
-### `npm test`
+https://robertheaton.com/2018/07/20/project-2-game-of-life/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Introduction (Copied from the above site): 
 
-### `npm run build`
+The game of life is not really a game. There's no winning or losing or destroying your opponent mentally and spiritually. 
+Life is a "cellular  atuomation". A system of cells that live on a grid, where they live, die and evolve according to the rules that goven their world. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Life's simple, elegant rules give rise to astonishingly complex emergent behavior. It is played on a 2-D grid. Each square in the gird contains a cell, and each cell starts the game as either "alive" or "dead". 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Play then proceeds in rounds. 
+During each round, each cell looks at its 8 immediate neighbbors and counts up the number of them that are currently alive. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The cell then updates its own liveness according to 4 rules: 
 
-### `npm run eject`
+1. Any live cell with 0 or 1 live neighbors becomes dead. 
+2. Any live cell with 2 or 3 live neighbors becomes alive (just right)
+3. Any live cell with more than 3 lives negbbors becomes dead. (over population)
+4. any dead cell with exactly 3 live neighbors becomes alive. (By reproduction)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A neighbor can be any cell horizontally, vertically or diagonally. 
+A matrix traversal algorithm should be used to achieve this. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
